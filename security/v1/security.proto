@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package security.v1;
+
+service SecurityContractService {
+    rpc signUp (SignUpRequest) returns (SignUpResponse){}
+}
+
+message SignUpRequest {
+    string firstName = 1;
+    string lastName = 2;
+    string username = 3;
+    string email = 4;
+    string password = 5;
+    string phoneNumber = 6;
+    bool termsAndConditions = 7;
+    repeated string applications = 8;
+    string id = 9;
+    
+}
+
+message SignUpResponse {
+    string token = 1;
+    string expiresIn = 2;
+    string refreshToken = 3;
+}
