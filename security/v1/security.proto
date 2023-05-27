@@ -4,6 +4,7 @@ package security.v1;
 
 service SecurityContractService {
     rpc signUp (SignUpRequest) returns (SignUpResponse){}
+    rpc authotize(AuthorizeRequest) returns (AuthorizeResponse){}
 }
 
 message SignUpRequest {
@@ -23,4 +24,27 @@ message SignUpResponse {
     string token = 1;
     string expiresIn = 2;
     string refreshToken = 3;
+}
+
+message AuthorizeRequest {
+    string apiKey = 1;
+    string domain = 2;
+}
+
+message AuthorizeResponse {
+    HeaderResult header = 1;
+    BodyAuthorizeResult body = 2;
+}
+
+message BodyAuthorizeResult {
+    string token = 1;
+}
+
+message HeaderResult {
+    HeaderStatusResult status = 1;
+}
+
+message HeaderStatusResult {
+    string code = 1;
+    string description = 2;
 }
