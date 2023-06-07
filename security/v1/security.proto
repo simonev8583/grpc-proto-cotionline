@@ -34,6 +34,7 @@ message AuthorizeRequest {
 message AuthorizeResponse {
     HeaderResult header = 1;
     BodyAuthorizeResult body = 2;
+    ErrorResponse error = 3;
 }
 
 message BodyAuthorizeResult {
@@ -52,4 +53,9 @@ message HeaderStatusResult {
 message ErrorResponse {
     string message = 1;
     string errorCode = 2;
+    string applicationErrorCode = 3;
+    string stack = 4;
+    string error = 5;
+    string statusCode = 6;
+    bool success = 7;
 }
