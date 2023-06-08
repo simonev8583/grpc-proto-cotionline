@@ -32,30 +32,31 @@ message AuthorizeRequest {
 }
 
 message AuthorizeResponse {
-    HeaderResult header = 1;
-    BodyAuthorizeResult body = 2;
-    ErrorResponse error = 3;
+    // HeaderResult header = 1;
+    // BodyAuthorizeResult body = 2;
+    // ErrorResponse error = 3;
+    string statusCode = 1;
+    string success = 2;
+    string message = 3;
+    string error = 4;
+    BodyAuthorizeResult data = 5;
 }
 
 message BodyAuthorizeResult {
     string token = 1;
 }
 
-message HeaderResult {
-    HeaderStatusResult status = 1;
-}
+// message HeaderResult {
+//     HeaderStatusResult status = 1;
+// }
 
-message HeaderStatusResult {
-    string code = 1;
-    string description = 2;
-}
+// message HeaderStatusResult {
+//     string code = 1;
+//     string description = 2;
+// }
 
-message ErrorResponse {
-    string message = 1;
-    string errorCode = 2;
-    string applicationErrorCode = 3;
-    string stack = 4;
-    string error = 5;
-    string statusCode = 6;
-    bool success = 7;
-}
+// message ErrorResponse {
+//     string message = 1;
+//     string statusCode = 6;
+//     bool success = 7;
+// }
