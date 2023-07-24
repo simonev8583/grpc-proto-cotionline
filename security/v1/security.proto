@@ -3,60 +3,14 @@ syntax = "proto3";
 package security.v1;
 
 service SecurityContractService {
-    rpc signUp (SignUpRequest) returns (SignUpResponse){}
-    rpc authorize(AuthorizeRequest) returns (AuthorizeResponse){}
+    rpc signUp (Request) returns (Response){}
+    rpc authorize(Request) returns (Response){}
 }
 
-message SignUpRequest {
-    string firstName = 1;
-    string lastName = 2;
-    string username = 3;
-    string email = 4;
-    string password = 5;
-    string phoneNumber = 6;
-    bool termsAndConditions = 7;
-    repeated string applications = 8;
-    string id = 9;
-    
+message Request {
+    string payload = 1;
 }
 
-message SignUpResponse {
-    string token = 1;
-    string expiresIn = 2;
-    string refreshToken = 3;
+message Response {
+    string result = 1;
 }
-
-message AuthorizeRequest {
-    string apiKey = 1;
-    string domain = 2;
-}
-
-message AuthorizeResponse {
-    // HeaderResult header = 1;
-    // BodyAuthorizeResult body = 2;
-    // ErrorResponse error = 3;
-    string statusCode = 1;
-    string success = 2;
-    string message = 3;
-    string error = 4;
-    BodyAuthorizeResult data = 5;
-}
-
-message BodyAuthorizeResult {
-    string token = 1;
-}
-
-// message HeaderResult {
-//     HeaderStatusResult status = 1;
-// }
-
-// message HeaderStatusResult {
-//     string code = 1;
-//     string description = 2;
-// }
-
-// message ErrorResponse {
-//     string message = 1;
-//     string statusCode = 6;
-//     bool success = 7;
-// }
