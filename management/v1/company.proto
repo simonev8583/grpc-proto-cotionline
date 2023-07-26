@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package company.v1;
+
+service CompanyContractService {
+    rpc GetById (Request) returns (Response){}
+}
+
+message Request {
+    string payload = 1;
+}
+
+message Response {
+    string result = 1;
+}
