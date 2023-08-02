@@ -5,6 +5,7 @@ package security.v1;
 service SecurityContractService {
     rpc signIn (Request) returns (Response){}
     rpc authorize(Request) returns (Response){}
+    rpc verify(Request) returns (Response){}
 }
 
 message Request {
