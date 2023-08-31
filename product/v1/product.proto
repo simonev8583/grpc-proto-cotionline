@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package product.v1;
+
+service ProductContractService {
+    rpc getAll (Request) returns (Response){}
+}
+
+message Request {
+    string payload = 1;
+}
+
+message Response {
+    string result = 1;
+}
